@@ -6,3 +6,12 @@ export const db = mysql.createConnection({
   password: "Ignis@1104",
   database: "social",
 });
+
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database:", err.stack);
+    return;
+  }
+
+  console.log("Connected to the database.");
+});
