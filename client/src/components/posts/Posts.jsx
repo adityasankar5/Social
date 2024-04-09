@@ -12,6 +12,8 @@ const Posts = () => {
 
   const { isLoading, error, data } = useQuery(options);
 
+  console.log(data); 
+
   return (
     <div className="posts">
       {isLoading ? (
