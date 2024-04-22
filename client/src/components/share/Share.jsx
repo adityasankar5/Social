@@ -27,17 +27,26 @@ const Share = () => {
 
   const queryClient = useQueryClient();
 
-    const mutation = useMutation(
-    (newPost) => {
-      return makeRequest.post("/posts", newPost);
-    },
-    {
-      onSuccess: () => {
-        // Invalidate and refetch
-        queryClient.invalidateQueries(["posts"]);
-      },
-    }
-  );
+  const mutation = useMutation({
+  mutationFn: (newPost) => {
+    return makeRequest.post("/posts", newPost);
+  },
+  onSuccess: () => {
+    // Invalidate and refetch
+    queryClient.invalidateQueries(["posts"]);
+  },
+});
+  //   const mutation = useMutation(
+  //   (newPost) => {
+  //     return makeRequest.post("/posts", newPost);
+  //   },
+  //   {
+  //     onSuccess: () => {
+  //       // Invalidate and refetch
+  //       queryClient.invalidateQueries(["posts"]);
+  //     },
+  //   }
+  // );
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -55,6 +64,7 @@ const Share = () => {
           <img
             src={currentUser.profilePic}
             alt=""
+            style={{ maxHeight: '400px', maxWidth: '400px' }}
           />
           <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={(e) => setDesc(e.target.value)}
               value={desc} />
