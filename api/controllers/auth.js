@@ -3,6 +3,13 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
+  // Check if email domain is correct
+  const domain = "@srmist.edu.in";
+  if (!req.body.email.endsWith(domain)) {
+    return res
+      .status(400)
+      .json("Please use your SRM Email Address to Register");
+  }
   //Check IF User Exists
 
   const q = "SELECT * FROM users WHERE username = ?"; //? = req.body.username
@@ -23,9 +30,11 @@ export const register = (req, res) => {
       hashedPassword,
       req.body.name,
     ];
-    db.query(q, [values], (err, data) => {
-      if (err) return res.status(500).json({ error: err });
-      return res.status(201).json({ message: "User Has Been Created" });
+
+    db.query(q, [values], (data) => {
+      // if (err) return res.status(500).json({ error: err });
+      // else console.log("User Created Successfully");
+      return res.status(201).json("User Has Been Created");
     });
   });
 };
