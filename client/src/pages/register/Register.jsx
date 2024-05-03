@@ -7,48 +7,46 @@ const Register = () => {
 
   const [inputs, setInputs] = useState({
     username: "",
-    email:"",
+    email: "",
     password: "",
     name: "",
   });
-    const [err, setErr] = useState(null);
+  const [err, setErr] = useState(null);
 
   const handleChange = e => {
-    setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
+    setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   };
 
   const handleClick = async e => { //api req, so async function
     e.preventDefault(); //to prevent the page from refreshing
 
-    try{
-await axios.post("http://localhost:8800/api/auth/register", inputs)
-    } catch(err){
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", inputs)
+    } catch (err) {
       setErr(err.response.data)
     }
   }
 
   console.log(err)
-  
+
   return (
     <div className="register">
       <div className="card">
         <div className="left">
           <h1>SRM Social.</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+            Connect with your SRM community!  This vibrant online hub keeps you in touch with classmates, clubs, and events, fostering a strong and connected SRM experience.
           </p>
           <span>Do you have an account?</span>
           <Link to="/login">
-          <button>Login</button>
+            <button>Login</button>
           </Link>
         </div>
         <div className="right">
           <h1>Register</h1>
           <form>
             <input type="text" placeholder="Username" name="username" onChange={handleChange} />
-            <input type="email" placeholder="Email" name="email" onChange={handleChange}/>
+            <input type="email" placeholder="Email" name="email" onChange={handleChange} />
             <input type="password" placeholder="Password" name="password" onChange={handleChange} />
             <input type="text" placeholder="Name" name="name" onChange={handleChange} />
             {err && err}

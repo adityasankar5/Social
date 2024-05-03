@@ -14,16 +14,16 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleChange = e => {
-    setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
+    setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   };
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try{
-    await login(inputs);
-    navigate("/"  )
-    }catch (err){
+    try {
+      await login(inputs);
+      navigate("/")
+    } catch (err) {
       setErr(err.response.data);
     }
   };
@@ -34,9 +34,7 @@ const Login = () => {
         <div className="left">
           <h1>Hello World.</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+            Connect with your SRM community!  This vibrant online hub keeps you in touch with classmates, clubs, and events, fostering a strong and connected SRM experience.
           </p>
           <span>Don't you have an account?</span>
           <Link to="/register">
@@ -46,7 +44,7 @@ const Login = () => {
         <div className="right">
           <h1>Login</h1>
           <form>
-            <input type="text" placeholder="Username" name="username" onChange={handleChange}/>
+            <input type="text" placeholder="Username" name="username" onChange={handleChange} />
             <input type="password" placeholder="Password" name="password" onChange={handleChange} />
             {err && err}
             <button onClick={handleLogin}>Login</button>

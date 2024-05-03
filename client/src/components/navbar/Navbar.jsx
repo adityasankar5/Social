@@ -32,14 +32,14 @@ const Navbar = () => {
           <DarkModeOutlinedIcon onClick={toggle} />
         )}
         <GridViewOutlinedIcon />
-        <div className="search">
+        {/* <div className="search">
           <SearchOutlinedIcon />
             <input
               type="text"
           
               placeholder="Search..."
             />
-        </div>
+        </div> */}
       </div>
       <div className="right">
         <PersonOutlinedIcon />

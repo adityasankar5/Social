@@ -24,22 +24,22 @@ const Stories = () => {
         <button>+</button>
       </div>
       <div className="story">
-        <img src={currentUser.profilePic} alt="" />
-        <span>{currentUser.name}</span>
+        <img src={"https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg"} alt="" />
+        <span>{"DBMS"}</span>
       </div>
       <div className="story">
-        <img src={currentUser.profilePic} alt="" />
-        <span>{currentUser.name}</span>
+        <img src={"https://assets.weforum.org/article/image/XaHpf_z51huQS_JPHs-jkPhBp0dLlxFJwt-sPLpGJB0.jpg"} alt="" />
+        <span>{"Rohit"}</span>
       </div>
       <div className="story">
-        <img src={currentUser.profilePic} alt="" />
-        <span>{currentUser.name}</span>
+        <img src="https://s.hdnux.com/photos/51/23/24/10827008/4/1200x0.jpg" alt="" />
+        <span>{"Vishal"}</span>
       </div>
       {error
         ? ""
         : isLoading
-        ? "loading"
-        : data.map((story) => (
+          ? "loading"
+          : data.map((story) => (
             <div className="story" key={story.id}>
               <img src={story.img} alt="" />
               <span>{story.name}</span>

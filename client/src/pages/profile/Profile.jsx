@@ -49,11 +49,11 @@ const Profile = () => {
             <div className="info">
               <div className="item">
                 <PlaceIcon />
-                <span>USA</span>
+                <span>IND</span>
               </div>
               <div className="item">
                 <LanguageIcon />
-                <span>lama.dev</span>
+                <span>jane.doe.com</span>
               </div>
             </div>
             <button>follow</button>
@@ -63,7 +63,7 @@ const Profile = () => {
             <MoreVertIcon />
           </div>
         </div>
-      <Posts/>
+        <Posts />
       </div>
     </div>
   );
